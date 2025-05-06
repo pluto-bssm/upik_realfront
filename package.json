@@ -1,0 +1,19 @@
+{
+  "name": "upik",
+  "private": true,
+  "packageManager": "pnpm@8.15.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "turbo": "^2.5.2",
+    "prettier": "^3.0.0"
+  }
+}
