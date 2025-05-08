@@ -1,14 +1,5 @@
-*{
+* {
   margin: auto 0;
-}
-.bar{
-  background-color: #80ABEF;
-  width: 242px;
-  height: 832px;
-}
-
-.vote_main{
-
 }
 
 @tailwind base;

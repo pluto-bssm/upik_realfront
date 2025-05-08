@@ -6,10 +6,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
 
     // 특히 src 경로 쓰고 있으니 이것도 추가!
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
