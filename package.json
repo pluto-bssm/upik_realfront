@@ -13,7 +13,10 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
     "prettier": "^3.0.0",
+    "tailwindcss": "^4.1.5",
     "turbo": "^2.5.2"
   },
   "dependencies": {
