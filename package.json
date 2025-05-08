@@ -6,7 +6,6 @@
     "apps/*",
     "packages/*"
   ],
-
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
@@ -18,6 +17,3 @@
     "prettier": "^3.0.0"
   }
 }
-
-
-
