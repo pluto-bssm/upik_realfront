@@ -46,7 +46,7 @@ export default function RootLayout({
                     </div>
 
                     <div className="mb-[3vh]">
-                      <h4>가이드</h4>
+                    <h4><Link href="/guide">가이드</Link></h4>
                     </div>
 
                     <div className="mb-[3vh]">
