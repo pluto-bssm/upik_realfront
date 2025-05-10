@@ -1,10 +1,11 @@
+import Votepage from "../component/votepage";
+
 export default function Vote() {
   return (
-    <div>
-      <div className="bg-[#FFFFFF] w-[120vh] h-[60vh] rounded-[2vh]">
-
-      </div>
-
+    <div className="flex flex-col gap-[5vh]">
+      <Votepage />
+      <Votepage />
+      
     </div>
   );
 }
