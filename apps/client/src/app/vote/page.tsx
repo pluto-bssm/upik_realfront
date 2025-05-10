@@ -1,7 +1,10 @@
-export default function Home() {
+export default function Vote() {
   return (
     <div>
-      <h3>투표 이시발</h3>
+      <div className="bg-[#FFFFFF] w-[120vh] h-[60vh] rounded-[2vh]">
+
+      </div>
+
     </div>
   );
 }

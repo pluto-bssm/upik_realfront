@@ -18,44 +18,70 @@ export default function RootLayout({
 
 {
   const [rotated, setRotated] = useState(false);
+  const [vote_click, setvote_click] = useState(false);
   const close = () => {
     setRotated(!rotated);
     
   };
+
+  const vote_C =() => {
+    setvote_click(!vote_click);
+  }
   
 
   return (
     <html lang="en">
       <body>
       <div className="flex flex-row">
-        <div className={`bg-[#FFFFFF] ${rotated ? "w-[30vh]" : "w-[0vh]"}  h-screen flex flex-col items-center justify-center`}>
-          
-          <div>
-            <div className="flex flex-row items-center justify-center gap-[3vh]">
-            <Link href="/"><Image src={logo} alt="Logo" className="w-[10vh]"/></Link>
+        <div >
+      <div className={`bg-[#FFFFFF] ${rotated ? "w-[30vh]" : "w-[0vh]"} h-screen flex flex-col transition-all duration-300`}>
+     <div className="h-[10vh] flex items-center justify-center gap-[3vh] px-[2vh]">
+    <Link href="/">
+      <Image src={logo} alt="Logo" className="w-[10vh]" />
+    </Link>
+    <button onClick={close} className="bg-transparent border-none">
+      <Image
+        src={bar}
+        alt="Toggle"
+        className={`w-[2vh] transition-transform duration-300 ${rotated ? "rotate-90" : "rotate-0"}`}
+      />
+    </button>
+  </div>
 
-            <button onClick={close} className="bg-transparent border-none"><Image src={bar} alt="Logo" className={`w-[2vh] transition-transform duration-300 ${rotated ? "rotate-90" : "rotate-0"}`}
-            /> 
-            </button>
-            </div>
 
-                <div className="mb-[70vh] mt-[5vh]">
+  <div className="flex-grow overflow-y-auto px-[5vh]">
+    <div className="mt-[5vh] flex flex-col">
 
-                    <div className="mb-[3vh]">
-                      <h4><Link href="/vote">투표</Link></h4>
-                    </div>
+      <div className="mb-[3vh]">
+        <p
+          className={`font-['P_Regular'] text-[2vh] cursor-pointer ${vote_click ? "text-[#0D0D0D]" : " text-[#737373]"}`}
+          onClick={vote_C}
+        >
+          투표
+        </p>
+        {vote_click && (
+          <div className="mt-[0.5vh] flex flex-col gap-[1vh]">
+            <Link href="/vote" className="no-underline text-[#737373] hover:text-[#0158DE]"><p className="font-['P_Regular'] text-[1.5vh]">투표 하기</p></Link>
+            <Link href="/votemake" className="no-underline text-[#737373] hover:text-[#0158DE]"><p className="font-['P_Regular'] text-[1.5vh] md:text-[10vh]">투표 만들기</p></Link>
+          </div>
+        )}
+      </div>
 
-                    <div className="mb-[3vh]">
-                    <h4><Link href="/guide">가이드</Link></h4>
-                    </div>
 
-                    <div className="mb-[3vh]">
-                      <h4>상점</h4>
-                    </div>
+      <div className="mb-[3vh]">
+        <p className="font-['P_Regular'] text-[2vh] text-[#737373]">가이드</p>
+      </div>
 
-                  </div>
-              </div>
-        </div>
+
+      <div className="mb-[3vh]">
+        <p className="font-['P_Regular'] text-[2vh] text-[#737373]">상점</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 

@@ -1,7 +1,24 @@
 * {
   margin: auto 0;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "P_Regular";
+  font-weight: 200;
+  src: url("./fonts/Pretendard-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "P_Semibold";
+  font-weight: 200;
+  src: url("./fonts/Pretendard-SemiBold.ttf") format("truetype");
+}
