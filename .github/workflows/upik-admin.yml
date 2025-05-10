@@ -1,4 +1,7 @@
-name: Upik Workflows
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: upik
 
 on:
   push:
@@ -13,15 +16,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - name: 레포지토리 체크아웃
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Node.js 23 설치
-        uses: actions/setup-node@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: '23'
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
       - name: pnpm 설치
@@ -33,5 +38,18 @@ jobs:
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
 
+      - name: Run Build (admin App)
+        run: pnpm turbo run build --filter=./apps/admin --continue
+
+      - name: Run Build (client App)
+        run: pnpm turbo run build --filter=./apps/client --continue
+
       - name: 테스트 실행
-        run: pnpm test
+        run: pnpm test App)
+        run: pnpm turbo run build --filter=./apps/admin --continue
+
+      - name: Run Build (client App)
+        run: pnpm turbo run build --filter=./apps/client --continue
+
+      - name: 테스트 실행
+          - run: pnpm test
