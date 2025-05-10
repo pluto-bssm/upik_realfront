@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: pnpm 설치
         run: npm install -g pnpm
@@ -45,11 +45,4 @@ jobs:
         run: pnpm turbo run build --filter=./apps/client --continue
 
       - name: 테스트 실행
-        run: pnpm test App)
-        run: pnpm turbo run build --filter=./apps/admin --continue
-
-      - name: Run Build (client App)
-        run: pnpm turbo run build --filter=./apps/client --continue
-
-      - name: 테스트 실행
-          - run: pnpm test
+        run: pnpm test
