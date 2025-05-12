@@ -1,5 +1,6 @@
-import ContentCard from "./components/ContentBox";
-import NavBar from "./components/NavBar";
+import ContentCard from "@/components/ContentBox";
+import NavBar from "@/components/NavBar";
+
 
 const posts = [
   {
