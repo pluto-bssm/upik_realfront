@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 interface Props {
     onClose: () => void;  
@@ -25,7 +25,7 @@ export default function SirenAlert({onClose,onBack}:Props){
                 onClick={onBack}
                 className="flex items-center gap-1 border border-blue-600 text-blue-600 px-5 py-2 text-sm rounded-full hover:bg-blue-50 rounded-[100px]"
             >
-                <span className="text-lg"><Search size={18}/></span> 뒤로가기
+                <span className="text-lg"><ArrowLeft size={18}/></span> 뒤로가기
             </button>
             </div>
         </div>

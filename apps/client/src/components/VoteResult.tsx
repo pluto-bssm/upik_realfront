@@ -1,28 +1,35 @@
-import { ChartNoAxesColumn } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
-export default function VoteResult(){
-    const ques = [
-        {
-            vtype:'재미질문',
-            voteTitle:'학교에서 가장가장 무서운 존재는?',
-            voteRes:['까먹고 기숙사 소등 안 한 날 마주친 사감쌤', '깃 충돌','원래 되다가 갑자기 안됨'],
-        }
-    ];
-    return(
+interface Props {
+    onClose: () => void;  
+    onBack: () => void;        
+  }
+
+export default function VoteResult({onClose,onBack}:Props){
+
+    return (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-[8px] w-[770px] h-[596px] p-10 flex flex-col justify-between">
-                <div>
-                <div className="flex items-center gap-2 text-4xl font-semibold text-black mb-6">
-                <ChartNoAxesColumn size={36}/>투표 결과 보기
-                </div>
-                <div>
-                <h4>{ques.vtype}</h4>
-                <h3>{ques.voteTitle}</h3>
-                </div>
-                <div>
-                </div>
-                </div>
+        <div className="bg-white rounded-[8px] px-10 py-8 w-[600px] h-[253px]">
+            <h2 className="text-4xl font-semibold text-black mb-3 ">경고</h2>
+            <p className="text-black mb-6 text-lg">
+            재투표 요청 버튼은 가이드에 잘못된 정보가 있어 수정이 필요한 경우 사용하는 버튼입니다.
+            운영자에게 재투표 요청을 보내시겠습니까?</p>
+
+            <div className="flex justify-center gap-4 pt-10 pl-80 pt-[20px]">
+            <button
+                onClick={onClose}
+                className="bg-[#0158DE] text-white px-5 py-2 text-lg rounded-[100px]">
+                네
+            </button>
+            <button
+                onClick={onBack}
+                className="flex items-center gap-1 border border-blue-600 text-blue-600 px-5 py-2 text-sm rounded-full rounded-[100px]">
+                <span className="text-lg"><ArrowLeft size={18}/></span> 뒤로가기
+            </button>
+            </div>
             </div>
         </div>
     );
 }
+
+
