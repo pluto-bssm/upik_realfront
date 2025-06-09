@@ -1,6 +1,6 @@
 name: "🔧 refactor"
 description: "수정할 기능 추가"
-labels: ["refactor 🔧"]
+labels: ["refactor"]
 body:
 - type: textarea
   attributes:

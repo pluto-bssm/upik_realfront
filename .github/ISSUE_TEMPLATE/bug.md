@@ -1,6 +1,6 @@
 name: "🐞 Bug"
 description: "새로운 기능 추가"
-labels: ["bug 🐞"]
+labels: ["bug"]
 body:
 - type: textarea
   attributes:
