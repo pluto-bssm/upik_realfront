@@ -4,6 +4,7 @@ import SirenAlert from "@/components/SirenAlert";
 import VoteResCheck from "@/components/VoteResCheck";
 import { Calendar, ThumbsUp, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import styled from "styled-components";
 
 interface PostProps {
   post: {
@@ -12,12 +13,16 @@ interface PostProps {
     likes: number;
     content: string;
   };
+  searchTerm?: string;
 }
 
-export default function ContentCard({ post }: PostProps) {
+export default function ContentCard({ post, searchTerm = "" }: PostProps) {
   const [helpCount, setHelpCount] = useState(0);
   const [isHelped, setIsHelped] = useState(false);
   const [modalMode, setModalMode] = useState<"none" | "report" | "siren" | "vote">("none");
+
+  const isMatchingSearch = searchTerm.trim() !== "" && 
+    post.title.toLowerCase().includes(searchTerm.toLowerCase());
 
   const handleReportBtn = () => {
     setModalMode("siren");
@@ -41,34 +46,28 @@ export default function ContentCard({ post }: PostProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg p-6 w-[866px] relative">
-      <h2 className="text-xl font-semibold text-black mb-3">{post.title}</h2>
-      <div className="flex items-center text-sm text-gray-300 mb-4 gap-2">
+    <Container style={{ 
+      order: isMatchingSearch ? -1 : 0,
+      display: 'block'
+    }}>
+      <Title>{post.title}</Title>
+      <DateContainer>
         <Calendar size={14} />
         <span>{post.date} 제작</span>
-      </div>
-      <p className="text-gray-800 text-base mb-6 leading-relaxed">{post.content}</p>
-      <div className="flex gap-3">
-        <button
-          onClick={() => setModalMode("report")}
-          className="border border-[#0158DE] text-[#0158DE] rounded-full px-4 py-2 text-sm hover:bg-[#0158DE] hover:text-white transition">
+      </DateContainer>
+      <Content>{post.content}</Content>
+      <ButtonContainer>
+        <ReportButton onClick={() => setModalMode("report")}>
           신고하기
-        </button>
-        <button
-          onClick={handleHelpClick}
-          className={`border border-[#0158DE] rounded-full px-4 py-2 text-sm flex items-center gap-1 transition ${
-            isHelped 
-              ? 'bg-[#0158DE] text-white' 
-              : 'text-[#0158DE] hover:bg-[#0158DE] hover:text-white'
-          }`}>
-          <ThumbsUp size={16} />
+        </ReportButton>
+        <HelpButton onClick={handleHelpClick} isHelped={isHelped}>
+          <ThumbsUp size={16} className={isHelped ? "text-white" : "text-[#0158DE]"} />
           도움이 되었어요 | {helpCount}명
-        </button>
-        <button className="bg-[#0158DE] text-white rounded-full px-4 py-2 text-sm flex items-center gap-1 ml-auto"
-        onClick={()=> setModalMode("vote")}>
+        </HelpButton>
+        <VoteButton onClick={() => setModalMode("vote")}>
           투표 결과 확인하기 <ArrowRight size={16} />
-        </button>
-      </div>
+        </VoteButton>
+      </ButtonContainer>
       {modalMode === "report" && (
         <ReportAlert onClose={closeModal} onSubmit={handleReportBtn} />
       )}
@@ -78,7 +77,94 @@ export default function ContentCard({ post }: PostProps) {
       {modalMode === "vote" && (
         <VoteResCheck onClose={closeModal} />
       )}
-      
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 866px;
+  position: relative;
+`;
+
+const Title = styled.h2`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 0.75rem;
+`;
+
+const DateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin-bottom: 1rem;
+`;
+
+const Content = styled.p`
+  color: #1F2937;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.625;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 0.75rem;
+`;
+
+const ReportButton = styled.button`
+  border: 1px solid #0158DE;
+  color: #0158DE;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: #0158DE;
+    color: white;
+  }
+`;
+
+interface HelpButtonProps {
+  isHelped: boolean;
+}
+
+const HelpButton = styled.button<HelpButtonProps>`
+  border: 1px solid #0158DE;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s;
+  
+  ${props => props.isHelped ? `
+    background-color: #0158DE;
+    color: white;
+  ` : `
+    color: #0158DE;
+    &:hover {
+      background-color: #0158DE;
+      color: white;
+    }
+  `}
+`;
+
+const VoteButton = styled.button`
+  background-color: #0158DE;
+  color: white;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+`;
