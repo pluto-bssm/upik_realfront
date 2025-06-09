@@ -1,3 +1,10 @@
+---
+name: "Refator"
+about: 리팩토링 할 때 사용해주세요
+title: "[] :: refactor"
+labels: ["refactor"]
+assignees: []
+---
 name: "🔧 refactor"
 description: "수정할 기능 추가"
 labels: ["refactor"]

@@ -1,3 +1,10 @@
+---
+name: "Feature"
+about: 새로운 기능을 추가할 때 사용해주세요
+title: "[] :: feature"
+labels: ["feature"]
+assignees: []
+---
 name: "✨ Feature"
 description: "새로운 기능 추가"
 labels: ["feature"]

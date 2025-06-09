@@ -1,3 +1,10 @@
+---
+name: "Bug"
+about: 버그를 수정 할 때 사용해주세요
+title: "[] :: bug"
+labels: ["bug"]
+assignees: []
+---
 name: "🐞 Bug"
 description: "새로운 기능 추가"
 labels: ["bug"]
