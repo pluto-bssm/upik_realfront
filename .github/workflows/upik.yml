@@ -32,6 +32,7 @@ jobs:
 
       - name: 의존성 설치
         run: pnpm install
+        working-directory: /
 
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
