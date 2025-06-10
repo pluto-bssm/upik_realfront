@@ -11,7 +11,7 @@ export default function Endvote() {
         router.push("/")
     }
   return (
-    <div className="flex items-center justify-center  bg-[#FAFAFA]">
+    <div className="flex items-center justify-center relative left-[16vh]  bg-[#FAFAFA] rounded-[2vh]">
       <div className="bg-white w-[120vh] h-[60vh] rounded-[2vh] shadow-lg flex flex-col items-center justify-center ">
         <Image
           src={check}
