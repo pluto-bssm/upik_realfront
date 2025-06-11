@@ -53,9 +53,9 @@ export const OptionRow = styled.div`
   background-color: #f9f9f9;
   width: 87%;
   border-radius: 1vh;
-  height: 8vh;
+  height: 10vh;
   padding: 0 3vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 `;
 
 export const OptionInput = styled.input`

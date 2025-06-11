@@ -1,5 +1,6 @@
 // app/components/VotemakeStyles.ts
 import styled from "styled-components";
+import Image from 'next/image';
 
 export const Container = styled.div`
   display: flex;
@@ -49,14 +50,14 @@ export const OptionRow = styled.div`
   background-color: #f9f9f9;
   width: 87%;
   border-radius: 1vh;
-  height: 8vh;
+  height: 12vh;
   padding: 0 3vh;
-  margin-bottom: 4vh;
+  margin-bottom: 1vh;
 `;
 
 export const OptionInput = styled.div`
   display: flex;
-  gap : 60vh;
+  gap : 65vh;
   background-color: transparent;
   border: none;
   outline: none;
@@ -93,17 +94,22 @@ export const InnerButtonsWrapper = styled.div`
 
 export const Button = styled.button<{ disabled?: boolean }>`
   color: #0158de;
-  border: 2px solid #0158de;
+  border: 1px solid #0158de;
   background-color: rgba(0, 0, 0, 0);
-  padding: 1.5vh 4vh;
+  padding: 1.5vh 0.2vh 1.5vh 0.2vh;
+
   border-radius: 9999px;
-  font-size: 1.6vh;
+  font-size: 1.8vh;
   cursor: pointer;
   transition: background-color 0.3s ease;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
 
-  width : 23vh;
+  width : 18vh;
 
   &:hover {
     background-color: #e6f0ff;
@@ -132,4 +138,39 @@ export const Category = styled.p`
   color: #0158de;
   font-family: "P_Regular";
   font-size: 1.8vh;
+`;
+
+export const StyledArrowImage = styled(Image)`
+  transition: filter 0.1s ease;
+`;
+
+
+export const ReButton = styled.button<{ disabled?: boolean }>`
+  color: #0158de;
+  border: 1px solid #0158de;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 1.5vh 0.2vh 1.5vh 0.2vh;
+
+  border-radius: 9999px;
+  font-size: 1.8vh;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
+
+  width : 18vh;
+
+  &:hover {
+    color : #FFFFFF;
+    background-color: #0158de;
+    
+  }
+  &:hover ${StyledArrowImage} {
+    filter: brightness(0) saturate(100%) invert(100%) hue-rotate(180deg);
+  }
+  
 `;

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import check from "@/app/images/check2.svg";
+import check from "@/app/images/check.svg";
 import { useRouter } from "next/navigation";
 
 import { Wrapper, Container, Message, Button } from "../style/End";

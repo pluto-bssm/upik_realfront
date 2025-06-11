@@ -4,8 +4,9 @@ import {
     ModalContent,
     CloseButton,
     Title,
-    Description
-} from "../app/style/Ailimitmodal"
+    Description,
+    Buttons
+} from "../app/style/Modal"
 
 interface ModalProps {
   onClose: () => void;
@@ -17,7 +18,9 @@ export default function AiLimitModal({ onClose }: ModalProps) {
       <ModalContent>
         <Title>안내</Title>
         <Description>AI 선지 추천은 최대 3회까지 가능합니다.</Description>
+        <Buttons>
         <CloseButton onClick={onClose}>확인</CloseButton>
+        </Buttons>
       </ModalContent>
     </ModalOverlay>
   );

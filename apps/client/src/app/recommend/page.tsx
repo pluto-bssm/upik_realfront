@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import SubmitModal from "@/components/SubmitModal"; 
+import arrow from "@/app/images/arrow.svg";
+import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 
@@ -22,7 +24,9 @@ import {
   Button,
   SubmitButton,
   WarnP,
-  Category
+  Category,
+  ReButton,
+  StyledArrowImage
 
 } from "../style/Recommend";
 
@@ -59,9 +63,10 @@ export default function recommend() {
                     <p>가이드</p>
                     </div>
                     
-                    <Button>
-                    자세히보기 →
-                  </Button>
+                    <ReButton>
+                    자세히보기
+                    <StyledArrowImage src={arrow} alt="checkimg"  width={16} height={16}/>
+                  </ReButton>
                 </OptionInput>
               </OptionRow>
             ))}
@@ -75,7 +80,7 @@ export default function recommend() {
                   </Button>
                 </InnerButtonsWrapper>
 
-                <SubmitButton onClick={() => setShowModal(!showModal)}>그래도 투표 제출하기</SubmitButton>
+                <SubmitButton onClick={() => setShowModal(!showModal)}>투표 제작하기</SubmitButton>
 
               </ButtonsRow>
             </AddOptionWrapper>
