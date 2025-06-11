@@ -1,9 +1,15 @@
+"use client";
+
+
 import Votepage from "../component/votepage";
+import {
+  VoteContainer
+} from "../style/Vote";
 
 export default function Vote() {
   return (
-    <div className="flex flex-col gap-[4vh] relative left-[16vh]">
+    <VoteContainer>
       <Votepage />
-    </div>
+    </VoteContainer>
   );
 }

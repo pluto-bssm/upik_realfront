@@ -1,34 +1,80 @@
+"use client";
+
+import styled from "styled-components";
 import Votemenu from "../votemenu/page";
+
+const Container = styled.div``;
+
+const Card = styled.div`
+  background-color: #FFFFFF;
+  width: 120vh;
+  height: 60vh;
+  border-radius: 2vh;
+`;
+
+const InfoWrapper = styled.div`
+  position: relative;
+  top: 4vh;
+  left: 5vh;
+`;
+
+const CategoryText = styled.p`
+  color: #0158de;
+  font-family: 'P_Regular';
+  font-size: 2vh;
+`;
+
+const TitleWrapper = styled.div`
+  position: absolute;
+  top: 3vh;
+`;
+
+const TitleText = styled.p`
+  color: #000000;
+  font-family: 'P_Regular';
+  font-size: 3vh;
+`;
+
+const DateWrapper = styled.div`
+  position: absolute;
+  top: 4vh;
+`;
+
+const DateText = styled.p`
+  color: #a6a6a6;
+  font-family: 'P_Regular';
+  font-size: 1.5vh;
+`;
+
+const MenuWrapper = styled.div`
+  position: absolute;
+  top: 20vh;
+  left: 5vh;
+  height: auto;
+`;
 
 export default function Votepage() {
   const category = "재미질문";
   const title = "학교에서 가장 무서운것은?";
   const date = "2025-05-23";
-  const num = 2;
 
   return (
-    <div>
-      <div className="bg-[#FAFAFA] w-[120vh] h-[60vh] rounded-[2vh]">
-        <div className="relative top-[4vh] left-[5vh]">
-          <p className="text-[#0158DE] font-['P_Regular'] text-[2vh]">
-            {category}
-          </p>
-          <div className="absolute top-[3vh]">
-            <p className="text-[#FFFFF] font-['P_Regular'] text-[3vh]">
-              {title}
-            </p>
-            <div className="absolute top-[4vh]">
-              <p className="text-[#A6A6A6] font-['P_Regular'] text-[1.5vh]">
-                {date} 투표마감
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <Container>
+      <Card>
+        <InfoWrapper>
+          <CategoryText>{category}</CategoryText>
+          <TitleWrapper>
+            <TitleText>{title}</TitleText>
+            <DateWrapper>
+              <DateText>{date} 투표마감</DateText>
+            </DateWrapper>
+          </TitleWrapper>
+        </InfoWrapper>
+      </Card>
 
-      <div className="absolute top-[20vh] left-[5vh] h-[auto]">
+      <MenuWrapper>
         <Votemenu />
-      </div>
-    </div>
+      </MenuWrapper>
+    </Container>
   );
 }
