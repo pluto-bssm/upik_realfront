@@ -33,18 +33,20 @@ jobs:
         with:
           version: 8
 
-      - name: 디렉토리 구조 확인
+      - name: 디버깅 - 디렉토리 구조 확인
         run: |
-          echo "[현재 디렉토리 위치]"
+          echo "현재 위치 확인:"
           pwd
-          echo "[현재 폴더 구조]"
+          echo "상위 폴더 구조:"
           ls -al
-          echo "[pnpm workspace 프로젝트 확인]"
-          cat package.json | grep name
+          echo "upik_realfront 내부 구조:"
+          ls -al upik_realfront
+          echo "package.json 위치 확인:"
+          cat upik_realfront/package.json | grep name
 
       - name: Install dependencies
-        working-directory: .
-        run: cd upik_realfront && pnpm install
+        run: pnpm install
+        working-directory: upik_realfront
 
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
