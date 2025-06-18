@@ -1,4 +1,4 @@
-name: upik
+name: upik_realfront
 
 on:
   push:
@@ -13,9 +13,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -35,23 +32,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Debug 현재 위치 확인
+      - name: Move to actual workspace
         run: |
-          echo "pwd: $(pwd)"
-          echo "github.workspace: $GITHUB_WORKSPACE"
-          ls -al
-
-      - name: Install dependencies 
-        run: pnpm install
-
-      - name: Prettier 코드 포맷 검사 
-        run: pnpm format
-
-      - name: Build admin app 
-        run: pnpm turbo run build --filter=apps/admin --continue
-
-      - name: Build client app 
-        run: pnpm turbo run build --filter=apps/client --continue
-
-      - name: 테스트 실행 
-        run: pnpm test
+          echo "경로로이동"
+          cd "$GITHUB_WORKSPACE/upik_realfront" 
+          echo "➡이동 후 위치: $(pwd)"
+          pnpm install
+          pnpm format
+          pnpm turbo run build --filter=apps/admin --continue
+          pnpm turbo run build --filter=apps/client --continue
+          pnpm test
