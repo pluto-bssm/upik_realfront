@@ -25,28 +25,40 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-        
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - name: Debug
+      - name: Debug working directory
         run: |
-          echo "현재 위치: $(pwd)"
+          echo "현재 경로: $(pwd)"
+          echo "Github workspace: $GITHUB_WORKSPACE"
           ls -al
+          
+      - name: Install dependencies 
+        run: |
+          cd $GITHUB_WORKSPACE
+          pnpm install
 
-      - name: Install dependencies 🧶
-        run: pnpm install
+      - name: Prettier 코드 포맷 검사 
+        run: |
+          cd $GITHUB_WORKSPACE
+          pnpm format
+          
+      - name: Build admin app 🛠
+        run: |
+          cd $GITHUB_WORKSPACE
+          pnpm turbo run build --filter=apps/admin --continue
+          
+      - name: Build client app 🛠
+        run: |
+          cd $GITHUB_WORKSPACE
+          pnpm turbo run build --filter=apps/client --continue
 
-      - name: Prettier 코드 포맷 검사 ✨
-        run: pnpm prettier --check .
-
-      - name: Build admin app 🛠️
-        run: pnpm turbo run build --filter=apps/admin --continue
-
-      - name: Build client app 🛠️
-        run: pnpm turbo run build --filter=apps/client --continue
-
-      - name: 테스트 실행 🧪
-        run: pnpm test
+      - name: 테스트 실행 
+        run: |
+          cd $GITHUB_WORKSPACE
+          pnpm test
