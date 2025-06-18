@@ -31,7 +31,12 @@ jobs:
         with:
           version: 8
 
-      - name: Install dependencies 
+      - name: debug 
+        run: |
+          echo "현재 위치: $(pwd)"
+          ls -al
+
+      - name: Install dependencies
         run: pnpm install
         working-directory: ${{ github.workspace }}
 
