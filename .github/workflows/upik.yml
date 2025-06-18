@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          path: .
+          path: upik
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
