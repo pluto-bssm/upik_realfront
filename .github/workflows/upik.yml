@@ -31,10 +31,10 @@ jobs:
         with:
           version: 8
 
-      - name: debug 
+      - name: 디버깅용 현재 위치 확인
         run: |
-          echo "현재 위치: $(pwd)"
-          ls -al
+            echo "Current dir: $(pwd)"
+            ls -la
 
       - name: Install dependencies
         run: pnpm install
