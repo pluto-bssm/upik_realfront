@@ -31,38 +31,22 @@ jobs:
         with:
           version: 8
 
-      - name: 디버깅 - 디렉토리 구조 확인
+      - name: Debug: 디렉토리 구조 확인 🔍
         run: |
-          echo "현재 위치:"
-          pwd
-          echo "폴더 구조:"
+          echo "현재 위치: $(pwd)"
           ls -al
-          echo "upik 폴더 내부:"
-          ls -al upik
-          echo "package.json 확인:"
-          cat upik/package.json | grep name
 
-      - name: Install dependencies
-        run: |
-          cd upik
-          pnpm install
+      - name: Install dependencies 🧶
+        run: pnpm install
 
-      - name: Prettier 코드 포맷 검사
-        run: |
-          cd upik
-          pnpm prettier --check .
+      - name: Prettier 코드 포맷 검사 ✨
+        run: pnpm prettier --check .
 
-      - name: Build admin app
-        run: |
-          cd upik
-          pnpm turbo run build --filter=./apps/admin --continue
+      - name: Build admin app 🛠️
+        run: pnpm turbo run build --filter=apps/admin --continue
 
-      - name: Build client app
-        run: |
-          cd upik
-          pnpm turbo run build --filter=./apps/client --continue
+      - name: Build client app 🛠️
+        run: pnpm turbo run build --filter=apps/client --continue
 
-      - name: 테스트 실행
-        run: |
-          cd upik
-          pnpm test
+      - name: 테스트 실행 🧪
+        run: pnpm test
