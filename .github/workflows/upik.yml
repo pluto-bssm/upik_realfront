@@ -33,8 +33,9 @@ jobs:
 
       - name: 디버깅용 현재 위치 확인
         run: |
-            echo "Current dir: $(pwd)"
+            echo "현재 위치: $(pwd)"
             ls -la
+            ls -la ${{ github.workspace }}
 
       - name: Install dependencies
         run: pnpm install
