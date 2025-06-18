@@ -31,6 +31,15 @@ jobs:
         with:
           version: 8
 
+      - name: 디버깅 - 디렉토리 구조 확인
+        run: |
+          echo "현재 위치 확인:"
+          pwd
+          echo "현재 폴더 구조:"
+          ls -al
+          echo "package.json 확인:"
+          cat package.json | grep name
+
       - name: Install dependencies
         run: pnpm install
 
