@@ -32,13 +32,19 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-      - name: 디버그용 디렉토리 구조 확인
+
+      - name: 디렉토리 구조 확인
         run: |
-              pwd tree -L 2
+          echo "[현재 디렉토리 위치]"
+          pwd
+          echo "[현재 폴더 구조]"
+          ls -al
+          echo "[pnpm workspace 프로젝트 확인]"
+          cat package.json | grep name
 
       - name: Install dependencies
-        run: pnpm install
-        working-directory: upik_realfront
+        working-directory: .
+        run: cd upik_realfront && pnpm install
 
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
