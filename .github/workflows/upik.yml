@@ -28,6 +28,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: upik
+        
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -38,10 +42,6 @@ jobs:
             echo "현재 위치: $(pwd)"
             ls -la
             ls -la ${{ github.workspace }}
-
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: upik
 
       - name: Prettier 코드 포맷 검사 
         run: pnpm prettier --check .
