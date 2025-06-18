@@ -42,9 +42,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: upik
 
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
+        working-directory: upik
 
       - name: Build admin app
         run: pnpm turbo run build --filter=./apps/admin --continue
