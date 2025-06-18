@@ -41,7 +41,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        working-directory: ${{ github.workspace }}
+        working-directory: upik
 
       - name: Prettier 코드 포맷 검사 
         run: pnpm prettier --check .
