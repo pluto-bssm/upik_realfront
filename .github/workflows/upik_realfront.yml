@@ -32,13 +32,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Move to actual workspace
-        run: |
-          echo "경로로이동"
-          cd "$GITHUB_WORKSPACE/upik_realfront" 
-          echo "➡이동 후 위치: $(pwd)"
-          pnpm install
-          pnpm format
-          pnpm turbo run build --filter=apps/admin --continue
-          pnpm turbo run build --filter=apps/client --continue
-          pnpm test
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ${{ github.workspace }}/upik_realfront
+
+      - name: Prettier 코드 포맷 검사 
+        run: pnpm format
+        working-directory: ${{ github.workspace }}/upik_realfront
+
+      - name: Build admin app 
+        run: pnpm turbo run build --filter=apps/admin --continue
+        working-directory: ${{ github.workspace }}/upik_realfront
+
+      - name: Build client app 
+        run: pnpm turbo run build --filter=apps/client --continue
+        working-directory: ${{ github.workspace }}/upik_realfront
+
+      - name: 테스트 실행 
+        run: pnpm test
+        working-directory: ${{ github.workspace }}/upik_realfront
