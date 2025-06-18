@@ -32,10 +32,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: ${{ github.workspace }}/upik_realfront
-
       - name: Prettier 코드 포맷 검사 
         run: pnpm format
         working-directory: ${{ github.workspace }}/upik_realfront
