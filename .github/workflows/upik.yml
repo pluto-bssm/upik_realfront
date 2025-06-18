@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          path: upik
+          path: upik_realfont
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -35,20 +35,20 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        working-directory: upik
+        working-directory: upik_realfront
 
       - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
-        working-directory: upik
+        working-directory: upik_realfront
 
       - name: Build admin app
         run: pnpm turbo run build --filter=./apps/admin --continue
-        working-directory: upik
+        working-directory: upik_realfront
 
       - name: Build client app
         run: pnpm turbo run build --filter=./apps/client --continue
-        working-directory: upik
+        working-directory: upik_realfront
 
       - name: 테스트 실행
         run: pnpm test
-        working-directory: upik
+        working-directory: upik_realfront
