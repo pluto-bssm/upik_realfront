@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 22.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
       - name: Checkout repository
@@ -28,29 +28,27 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: upik
-        
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
 
-      - name: 디버깅용 현재 위치 확인
-        run: |
-            echo "현재 위치: $(pwd)"
-            ls -la
-            ls -la ${{ github.workspace }}
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: upik
 
-      - name: Prettier 코드 포맷 검사 
+      - name: Prettier 코드 포맷 검사
         run: pnpm prettier --check .
+        working-directory: upik
 
-      - name: Build admin app 
+      - name: Build admin app
         run: pnpm turbo run build --filter=./apps/admin --continue
+        working-directory: upik
 
-      - name: Build client app 
+      - name: Build client app
         run: pnpm turbo run build --filter=./apps/client --continue
+        working-directory: upik
 
-      - name: 테스트 실행 
+      - name: 테스트 실행
         run: pnpm test
+        working-directory: upik
