@@ -23,10 +23,9 @@ export const ContentBox = styled.div`
     justify-content: start;
     gap: 10vh;
     width: 100vh;
-
-    margin-left : 3vh;
-    
-    margin-top : -10vh;
+    height : 30vh;
+    background-color : #FFFFFF;
+    border-radius: 2vh;
 `;
 
 export const ProfileImage = styled(Image)`
@@ -64,21 +63,30 @@ export const Input = styled.input`
   }
 `;
 
+export const StyledArrowImage = styled(Image)`
+  transition: filter 0.1s ease;
+`;
+
 export const Button = styled.button`
 
-  width: 110px;
-  height: 36px;
-  background-color: #0064ff;
-  color: white;
+  width: 43vh;
+  height: 12vh;
+  background-color: #FFFFFF;
+  
   font-weight: 600;
-  border: none;
+  border: 2px solid #8B8B8B;
   border-radius: 6px;
   cursor: pointer;
 
   &:hover {
-    background-color: #0050d7;
+    border: 2px solid #0050d7;
+    ${StyledArrowImage} {
+      filter: invert(22%) sepia(100%) saturate(5740%) hue-rotate(213deg) brightness(95%) contrast(99%);
+    
   }
 `;
+
+
 
 
 export const Form =  styled.div`
@@ -86,4 +94,56 @@ export const Form =  styled.div`
   flex-direction : column;
   gap : 10vh;
 
+`;
+
+
+export const Name =  styled.p`
+  font-size: 2.5vh;
+`;
+
+
+export const NameForm =  styled.div`
+  display : flex;
+  justify-content : start;
+  align-items: end;
+  gap : 2vh;
+  margin-left : 6vh;
+  margin-top : -15vh;
+`;
+
+export const ButtonForm =  styled.div`
+  display : flex;
+  justify-content : start;
+  align-items: end;
+  gap : 2vh;
+  margin-left : 6vh;
+  margin-top : 0vh;
+`;
+
+export const ButtonSection =  styled.div`
+  display : flex;
+  justify-content : start;
+  align-items: start;
+  gap : 25vh;
+`;
+
+export const Buttonp =  styled.p`
+  font-size: 2vh;
+  font-weight: 400;
+
+`;
+
+
+export const ButtonSub =  styled.p`
+  font-size: 1.4vh;
+  font-weight: 400;
+`;
+
+
+
+export const ButtonContent =  styled.div`
+  display : flex;
+  flex-direction : column;
+  align-items : start;
+  gap : 3vh;
 `;
