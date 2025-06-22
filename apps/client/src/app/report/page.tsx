@@ -1,29 +1,56 @@
 "use client";
 
 import React from "react";
-import arrow from "@/app/images/arrow3.svg";
-import { useRouter } from "next/navigation";
+
 import {
   Container,
   Title,
   ContentBox,
-  InfoContainer,
-  NameForm,
-  Name,
-  Form,
-  Button,
-  ButtonForm,
-  StyledArrowImage,
-  ButtonSection,
-  Buttonp,
-  ButtonSub,
-  ButtonContent,
+
   Sub
 } from "../style/report"
 
 const name = "1134박기주";
 const email = "24.013@bssm.hs.kr";
 
+const posts = [
+    {
+      id: "001",
+      title: "차수민쌤이랑 데이트 박제현쌤이랑 데이트",
+      writer: "오주현",
+      date: "2025.06.22"
+    },
+    {
+      id: "002",
+      title: "오늘 점심 뭐 먹지?",
+      writer: "김예은",
+      date: "2025.06.21"
+    },
+    {
+      id: "003",
+      title: "React 훅 정리 노트 공유합니다!",
+      writer: "이정환",
+      date: "2025.06.20"
+    },
+    {
+      id: "004",
+      title: "Next.js 서버 컴포넌트 사용기",
+      writer: "정은지",
+      date: "2025.06.19"
+    },
+    {
+      id: "005",
+      title: "스타벅스 쿠폰 나눔해요~",
+      writer: "박지민",
+      date: "2025.06.18"
+    },
+    {
+        id: "006",
+        title: "차수민쌤이랑 데이트 박제현쌤이랑 데이트",
+        writer: "오주현",
+        date: "2025.06.22"
+    }
+  ];
 
 
 
@@ -34,34 +61,21 @@ export default function Mypage() {
       <Title>마이페이지</Title>
       <Sub>신고기록 조회</Sub>
       <ContentBox>
-        <Form>
-        <InfoContainer>
-          <NameForm>
-            <Name>{name}</Name>
-            <p>{email}</p>
-          </NameForm>
-          <ButtonForm>
-            <Button>
-              <ButtonContent>
-                <ButtonSection>
-                <Buttonp>내가쓴 투표조회</Buttonp>
-                <StyledArrowImage src={arrow} alt="checkimg"  width={30} height={30}/>
-                </ButtonSection>
-                <ButtonSub>내가 쓴 다양한 게시글을 볼 수 있어요!</ButtonSub>
-              </ButtonContent>
-            </Button>
-            <Button>
-            <ButtonContent>
-                <ButtonSection>
-                <Buttonp>신고조회</Buttonp>
-                <StyledArrowImage src={arrow} alt="checkimg"  width={30} height={30}/>
-                </ButtonSection>
-                <ButtonSub>내가 신고한 게시물들과 상태를 볼 수 있어요!</ButtonSub>
-              </ButtonContent>
-            </Button>
-          </ButtonForm>
-        </InfoContainer>
-        </Form>
+        <div className="w-[50vh] h-[60vh] bg-[#FFFFFF] rounded-[1vh] flex flex-col justtfy-center items-center pt-[2vh] pb-[2vh]">
+        {posts.map((post) => (
+        <div key={post.id} className="bg-[#FAFAFA] w-[90%] h-[9vh] flex flex-col rounded-[5px]">
+          <div className="ml-[2vh] flex flex-col gap-[1vh]">
+          <p className="text-[2vh] font-[400]">{post.title}</p>
+          <div className="flex gap-[2vh]">
+          <p>{post.writer}</p>
+          <p>{post.date}</p>
+          <p>{post.id}</p>
+          </div>
+          </div>
+        </div>
+      ))}
+
+        </div>
       </ContentBox>
     </Container>
   );

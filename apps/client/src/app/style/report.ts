@@ -31,7 +31,6 @@ export const ContentBox = styled.div`
     gap: 10vh;
     width: 100vh;
     height : 30vh;
-    background-color : #FFFFFF;
     border-radius: 2vh;
 `;
 
