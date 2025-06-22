@@ -13,8 +13,15 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 5vh;
   font-weight: 500;
+  margin-bottom:1rem;
+`;
+
+export const Sub = styled.h1`
+  font-size: 3vh;
+  font-weight: 350;
   margin-bottom: 5rem;
 `;
+
 
 export const ContentBox = styled.div`
     display: flex;

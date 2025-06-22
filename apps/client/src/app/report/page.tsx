@@ -17,26 +17,22 @@ import {
   ButtonSection,
   Buttonp,
   ButtonSub,
-  ButtonContent
-} from "../style/Mypage"
+  ButtonContent,
+  Sub
+} from "../style/report"
 
 const name = "1134박기주";
 const email = "24.013@bssm.hs.kr";
 
 
 
+
+
 export default function Mypage() {
-
-  const router = useRouter() ;
-
-
-function Goreport(){
-  router.push("/report");
-}
-
   return (
     <Container>
       <Title>마이페이지</Title>
+      <Sub>신고기록 조회</Sub>
       <ContentBox>
         <Form>
         <InfoContainer>
@@ -55,7 +51,7 @@ function Goreport(){
               </ButtonContent>
             </Button>
             <Button>
-            <ButtonContent onClick={() => Goreport()}>
+            <ButtonContent>
                 <ButtonSection>
                 <Buttonp>신고조회</Buttonp>
                 <StyledArrowImage src={arrow} alt="checkimg"  width={30} height={30}/>
