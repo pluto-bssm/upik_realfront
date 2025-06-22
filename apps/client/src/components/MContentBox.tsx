@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import color from "@/styles/color";
 
 interface Props {
   title: string;
@@ -20,7 +21,7 @@ export default function MContentCard({ title, date, likes }: Props) {
 }
 
 const CardContainer = styled.div`
-  background-color: #FAFAFA;
+  background-color: ${color.gray50};
   border-radius: 8px;
   padding: 1rem;
   font-size: 0.875rem;
@@ -31,13 +32,13 @@ const CardContainer = styled.div`
 const Title = styled.div`
   font-weight: 500;
   font-size:20px;
-  font-color:gray-800;
+  font-color:${color.gray800};
   margin-bottom: 0.1rem;
   margin-top: -6px;
 `;
 
 const Meta = styled.div`
   font-size: 0.75rem;
-  color: #595959;
+  color: ${color.gray300};
   margin-top: -2px;
 `;

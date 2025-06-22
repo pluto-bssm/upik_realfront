@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import MContentCard from "@/components/MContentBox";
 import NavBar from "@/components/NavBar";
+import color from "@/styles/color";
 
 const voteContent = [
   {
@@ -71,10 +72,11 @@ export default function MainPage() {
 
 const Container = styled.div`
   display: flex;
+
 `;
 
 const Main = styled.main`
-  background-color: #EFF5FF;
+  background-color: ${color.back_color};
   min-height: 100vh;
   flex: 1;
   padding: 3.5rem 2.5rem;
@@ -89,7 +91,7 @@ const Grid = styled.div`
 `;
 
 const Section = styled.section`
-  background-color: white;
+  background-color: ${color.white};
   width:93%;
   height:100%;
   padding: 1.5rem;
@@ -98,7 +100,7 @@ const Section = styled.section`
 
 const Title = styled.h2`
   font-size: 24px;
-  font-color:gray-800;
+  font-color:${color.gray800};
   font-weight: 700;
   margin-bottom: 1.5rem;
 `;

@@ -1,15 +1,13 @@
 const color = {
     main: '#0158DE',
     lightmain:'#80ABEF',
-    black: '#151515',
+    back_color:'#EFF5FF',
     white: '#FFFFFF',
-    gray04: '#FFFFFF0A',
-    gray20: '#FFFFFF33',
-    gradient: {
-      main: 'linear-gradient(92deg, #F72A7D 6.19%, var(--primary, #F03E3E) 47.74%, #FF16BD 100.79%)',
-      background:
-        'radial-gradient(255.39% 142.65% at 13.83% 21.15%, #151515 13.76%, #6B2525 35.23%, #F03E3E 66.71%, #FF16BD 93.73%);',
-    },
+    gray50: '#FAFAFA',
+    gray200: '#A6A6A6',
+    gray300: '#8B8B8B',
+    gray500: '#595959',
+    gray800: '#0D0D0D',
   };
   
   export default color;

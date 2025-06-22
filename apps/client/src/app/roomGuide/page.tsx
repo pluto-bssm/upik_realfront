@@ -1,5 +1,7 @@
 "use client";
 
+import color from "@/styles/color";
+import styled from "styled-components";
 import ContentCard from "@/components/ContentBox";
 import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
@@ -28,19 +30,52 @@ const posts = [
 
 export default function RoomGuidePage() {
   return (
-    <div className="flex">
+    <Container>
       <NavBar />
-      <main className="bg-[#EFF5FF] min-h-screen flex-1 px-10 py-14 ml-[242px] w-[866px] pl-[150px]">
-        <div className="flex justify-between items-center mb-12">
-          <h1 className="text-4xl font-bold">기숙사 가이드</h1>
+      <MainContent>
+        <Header>
+          <Title>기숙사 가이드</Title>
           <SearchBar />
-        </div>
-        <div className="flex flex-col gap-8">
+        </Header>
+        <ContentList>
           {posts.map((post, idx) => (
             <ContentCard key={idx} post={post} />
           ))}
-        </div>
-      </main>
-    </div>
+        </ContentList>
+      </MainContent>
+    </Container>
   );
 } 
+
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const MainContent = styled.div`
+  background-color: ${color.back_color};
+  min-height: 100vh;
+  flex: 1;
+  padding: 3.5rem 2.5rem 3.5rem 9.375rem; 
+  margin-left: 242px;
+  width: 866px;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem; 
+`;
+
+const Title = styled.h1`
+  font-size: 2.25rem; 
+  font-color: ${color.gray800};
+  font-weight: bold;
+`;
+
+const ContentList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+`;

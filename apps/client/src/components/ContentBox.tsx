@@ -5,6 +5,7 @@ import VoteResCheck from "@/components/VoteResCheck";
 import { Calendar, ThumbsUp, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import styled from "styled-components";
+import color from "@/styles/color";
 
 interface PostProps {
   post: {
@@ -82,7 +83,7 @@ export default function ContentCard({ post, searchTerm = "" }: PostProps) {
 }
 
 const Container = styled.div`
-  background-color: white;
+  background-color: ${color.white};
   border-radius: 0.5rem;
   padding: 1.5rem;
   width: 866px;
@@ -92,7 +93,7 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: 1.25rem;
   font-weight: 600;
-  color: black;
+  color: ${color.gray800};
   margin-bottom: 0.75rem;
 `;
 
@@ -101,12 +102,12 @@ const DateContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #9CA3AF;
+  color: ${color.gray300};
   margin-bottom: 1rem;
 `;
 
 const Content = styled.p`
-  color: #1F2937;
+  color: ${color.gray800};
   font-size: 1rem;
   margin-bottom: 1.5rem;
   line-height: 1.625;
@@ -118,16 +119,16 @@ const ButtonContainer = styled.div`
 `;
 
 const ReportButton = styled.button`
-  border: 1px solid #0158DE;
-  color: #0158DE;
-  border-radius: 9999px;
+  border: 1px solid ${color.main};
+  color: ${color.main};
+  border-radius: 100px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   transition: all 0.2s;
   
   &:hover {
-    background-color: #0158DE;
-    color: white;
+    background-color: ${color.main};
+    color: ${color.white};
   }
 `;
 
@@ -136,8 +137,8 @@ interface HelpButtonProps {
 }
 
 const HelpButton = styled.button<HelpButtonProps>`
-  border: 1px solid #0158DE;
-  border-radius: 9999px;
+  border: 1px solid ${color.main};
+  border-radius: 100px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   display: flex;
@@ -146,21 +147,21 @@ const HelpButton = styled.button<HelpButtonProps>`
   transition: all 0.2s;
   
   ${props => props.isHelped ? `
-    background-color: #0158DE;
-    color: white;
+    background-color: ${color.main};
+    color: ${color.white};
   ` : `
-    color: #0158DE;
+    color: ${color.main};
     &:hover {
-      background-color: #0158DE;
-      color: white;
+      background-color: ${color.main};
+      color: ${color.white};
     }
   `}
 `;
 
 const VoteButton = styled.button`
-  background-color: #0158DE;
-  color: white;
-  border-radius: 9999px;
+  background-color: ${color.main};
+  color: ${color.white};
+  border-radius: 100px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   display: flex;

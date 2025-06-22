@@ -2,21 +2,15 @@
 
 import { Search } from "lucide-react";
 import styled from "styled-components";
+import color from "@/styles/color";
 
-interface SearchBarProps {
-  searchTerm: string;
-  onSearchChange: (value: string) => void;
-}
-
-export default function SearchBar({ searchTerm, onSearchChange }: SearchBarProps){
+export default function SearchBar(){
     return (
        <Container>
         <SearchWrapper>
           <SearchInput 
             type="text" 
             placeholder="가이드 검색창"
-            value={searchTerm}
-            onChange={(e) => onSearchChange(e.target.value)}
           />
           <SearchIcon size={20} />
         </SearchWrapper>
@@ -38,16 +32,16 @@ const SearchInput = styled.input`
   width: 325px;
   height: 44px;
   border-radius: 9999px;
-  border: 1px solid #80ABEF;
+  border: 1px solid ${color.lightmain};
   padding-left: 2.5rem;
   padding-right: 1rem;
-  color: #80ABEF;
+  color: ${color.lightmain};
   margin-right: 9rem;
   transition: all 0.2s;
 
   &:focus {
     outline: none;
-    border-color: #80ABEF;
+    border-color: ${color.lightmain};
   }
 `;
 
@@ -56,6 +50,6 @@ const SearchIcon = styled(Search)`
   left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #80ABEF;
+  color: ${color.lightmain};
 `;
 
